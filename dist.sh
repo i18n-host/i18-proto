@@ -6,7 +6,7 @@ set -ex
 
 bun x mdt .
 . ./gen.sh
-cp ../../README.md .
+cp -f ../README.md .
 git add -u
 cargo v patch -y
 git add -u && git commit -m. && git push || true

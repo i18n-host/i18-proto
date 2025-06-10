@@ -6,9 +6,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(irrefutable_let_patterns)]
 #![allow(rustdoc::broken_intra_doc_links)]
-
 // Modules are generated based on the naming conventions of protobuf, which might cause "module inception"
 #![allow(clippy::module_inception)]
 // This is all generated code, so "manually" implementing derivable impls is okay
@@ -19,8 +17,6 @@
 #![allow(clippy::redundant_closure)]
 // TODO: Ideally we don't allow this
 #![allow(clippy::option_as_ref_deref)]
-// TODO: Ideally we don't allow this
 #![allow(clippy::match_single_binding)]
-
-
 pub mod proto_tran;
+pub use proto_tran::*;

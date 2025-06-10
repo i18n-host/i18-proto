@@ -8,12 +8,12 @@ if ! command -v pbc &>/dev/null; then
   cargo install pbc
 fi
 pbc
-rm -rf pb rust/proto__
+rm -rf pb proto__
 
-echo -e '\npub use proto_tran::*;' >>rust/proto_tran/src/lib.rs
+echo -e '\npub use proto_tran::*;' >>proto_tran/src/lib.rs
 
-cd ./rust/proto_tran
+cd ./proto_tran
 touch Cargo.lock
 rm Cargo.toml
-ln -s ../../proto_tran.toml Cargo.toml
+ln -s ../proto_tran.toml Cargo.toml
 awk '!seen[$0]++' src/lib.rs | sponge src/lib.rs
