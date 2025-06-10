@@ -1,7 +1,7 @@
 [package]
 name = "proto_tran"
 license = "MulanPSL-2.0"
-version = "0.1.31"
+version = "0.1.32"
 edition = "2024"
 description = "proto_tran"
 repository = "https://github.com/i18n-site/tran.git"
