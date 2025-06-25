@@ -8,7 +8,8 @@ if ! command -v pbc &>/dev/null; then
   cargo install pbc
 fi
 pbc
-rm -rf pb proto__
+mv rust/proto_tran/src/proto_tran.rs proto_tran/src/
+rm -rf pb proto__ rust
 
 echo -e '\npub use proto_tran::*;' >>proto_tran/src/lib.rs
 
