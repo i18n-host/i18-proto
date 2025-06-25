@@ -50,12 +50,3 @@ message Tran
   // 术语替换放到客户端完成,
   // repeated Term term_li = 4;
 }
-
-message TranResult
-{
-  uint64 id = 1;
-  uint32 code = 2;
-  string rel = 3;
-  uint32 lang = 4;
-  string msg = 5;
-}
