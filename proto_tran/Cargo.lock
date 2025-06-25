@@ -60,7 +60,7 @@ dependencies = [
 
 [[package]]
 name = "proto_tran"
-version = "0.1.35"
+version = "0.1.36"
 dependencies = [
  "lazy_static",
  "pb-jelly",
