@@ -13,8 +13,8 @@ enum Filetype {
 
 message UpdateLi
 {
-  /* from lang */
   Filetype filetype = 1;
+  /* from lang */
   uint32 lang = 2;
   bytes hash = 3;
   repeated LangTxt li = 4;
