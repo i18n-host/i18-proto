@@ -26,7 +26,7 @@ message UpdateCache
   repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
 }
 
-// // 翻译文件的接口
+// 翻译文件的接口
 // message Tran
 // {
 //   uint32 from_lang = 1;
