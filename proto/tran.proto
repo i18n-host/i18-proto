@@ -14,7 +14,7 @@ enum Filetype {
 message UpdateLi
 {
   Filetype filetype = 1;
-  /* from lang */
+  /* 源文本的语言 */
   uint32 src_lang = 2;
   bytes hash = 3;
   repeated LangTxt li = 4;
