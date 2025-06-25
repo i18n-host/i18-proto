@@ -48,9 +48,15 @@ message Term
   repeated Dict dict_li = 4;
 }
 
-message Tran
+// 更新缓存的接口
+message UpdateCache
 {
   repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
+}
+
+// 翻译文件的接口
+message Tran
+{
   repeated TranLi tran_li = 2 [ (rust.nullable_field) = false ];
   repeated Term term_li = 3;
 }
