@@ -26,13 +26,6 @@ message RelTxt
   string txt = 2;
 }
 
-message TranLi
-{
-  uint32 from_lang = 1;
-  repeated uint32 to_lang_li = 2;
-  repeated RelTxt li = 3;
-}
-
 message Dict
 {
   uint32 lang = 1;
@@ -57,8 +50,11 @@ message UpdateCache
 // 翻译文件的接口
 message Tran
 {
-  repeated TranLi tran_li = 2 [ (rust.nullable_field) = false ];
-  repeated Term term_li = 3;
+  uint32 from_lang = 1;
+  repeated uint32 to_lang_li = 2;
+  repeated RelTxt li = 3;
+  // 术语表
+  repeated Term term_li = 4;
 }
 
 message TranResult
