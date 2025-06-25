@@ -20,21 +20,6 @@ message UpdateLi
   repeated LangTxt li = 4;
 }
 
-message Dict
-{
-  uint32 lang = 1;
-  repeated string from_word_li = 2;
-  repeated string to_word_li = 3;
-}
-
-message Term
-{
-  uint32 lang = 1;
-  repeated string from_word_li = 2;
-  repeated string to_word_li = 3;
-  repeated Dict dict_li = 4;
-}
-
 // 更新缓存的接口
 message UpdateCache
 {
