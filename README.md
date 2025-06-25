@@ -16,55 +16,27 @@ enum Filetype {
 
 message UpdateLi
 {
-  /* from lang */
   Filetype filetype = 1;
-  uint32 lang = 2;
+  /* 源文本的语言 */
+  uint32 src_lang = 2;
   bytes hash = 3;
   repeated LangTxt li = 4;
 }
 
-message RelTxt
-{
-  string rel = 1;
-  string txt = 2;
-}
-
-message TranLi
-{
-  uint32 from_lang = 1;
-  repeated uint32 to_lang_li = 2;
-  repeated RelTxt li = 3;
-}
-
-message Dict
-{
-  uint32 lang = 1;
-  repeated string from_word_li = 2;
-  repeated string to_word_li = 3;
-}
-
-message Term
-{
-  uint32 lang = 1;
-  repeated string from_word_li = 2;
-  repeated string to_word_li = 3;
-  repeated Dict dict_li = 4;
-}
-
-message Tran
+// 更新缓存的接口
+message UpdateCache
 {
   repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
-  repeated TranLi tran_li = 2 [ (rust.nullable_field) = false ];
-  repeated Term term_li = 3;
 }
 
-message TranResult
-{
-  uint64 id = 1;
-  uint32 code = 2;
-  string rel = 3;
-  uint32 lang = 4;
-  string msg = 5;
-}
+// 翻译文件的接口
+// message Tran
+// {
+//   uint32 from_lang = 1;
+//   uint32 to_lang = 2;
+//   string txt = 3;
+//   // 术语替换放到客户端完成,
+//   // repeated Term term_li = 4;
+// }
 ```
 
