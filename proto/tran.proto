@@ -15,7 +15,7 @@ message UpdateLi
 {
   Filetype filetype = 1;
   /* from lang */
-  uint32 lang = 2;
+  uint32 src_lang = 2;
   bytes hash = 3;
   repeated LangTxt li = 4;
 }
