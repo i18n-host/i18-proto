@@ -20,12 +20,6 @@ message UpdateLi
   repeated LangTxt li = 4;
 }
 
-message RelTxt
-{
-  string rel = 1;
-  string txt = 2;
-}
-
 message Dict
 {
   uint32 lang = 1;
@@ -52,7 +46,7 @@ message Tran
 {
   uint32 from_lang = 1;
   repeated uint32 to_lang_li = 2;
-  RelTxt li = 3;
+  string txt = 3;
   // 术语表
   repeated Term term_li = 4;
 }
