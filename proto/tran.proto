@@ -46,7 +46,7 @@ message Tran
 {
   uint32 from_lang = 1;
   repeated uint32 to_lang_li = 2;
-  string txt = 3;
+  string txt = 2;
   // 术语表
   repeated Term term_li = 4;
 }
