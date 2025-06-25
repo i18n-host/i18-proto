@@ -45,10 +45,10 @@ message UpdateCache
 message Tran
 {
   uint32 from_lang = 1;
-  repeated uint32 to_lang_li = 2;
-  string txt = 2;
-  // 术语表
-  repeated Term term_li = 4;
+  uint32 to_lang = 2;
+  string txt = 3;
+  // 术语替换放到客户端完成,
+  // repeated Term term_li = 4;
 }
 
 message TranResult
