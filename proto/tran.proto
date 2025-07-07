@@ -20,12 +20,12 @@ message UpdateLi
   repeated LangTxt li = 4;
 }
 
-
 message TranTxt
 {
   uint32 from_lang = 1;
   repeated uint32 to_lang = 2;
   string txt = 3;
+  string path = 4;
 }
 
 
