@@ -32,6 +32,4 @@ message UpdateCache
 //   uint32 from_lang = 1;
 //   uint32 to_lang = 2;
 //   string txt = 3;
-//   // 术语替换放到客户端完成,
-//   // repeated Term term_li = 4;
 // }
