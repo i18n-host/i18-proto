@@ -1,36 +1,26 @@
 syntax = "proto3";
 
-message LangTxt
-{
-  uint32 lang = 1;
-  string txt = 2;
-}
+import "rust/extensions.proto";
 
-enum Filetype {
-  Md = 0;
-  Yml = 1;
-}
-
-message UpdateLi
+message Update
 {
-  Filetype filetype = 1;
   /* 源文本的语言 */
-  uint32 src_lang = 2;
-  bytes hash = 3;
-  repeated LangTxt li = 4;
+  uint32 lang = 1;
+  bytes hash = 2;
+  /* 语言 - 有更新的译文 */
+  map<uint32, string> map = 3;
 }
 
-message TranTxt
+message Tran
 {
   uint32 from_lang = 1;
-  repeated uint32 to_lang = 2;
+  repeated uint32 to_lang_li = 2;
   string txt = 3;
   string path = 4;
 }
 
-
-
-message TranTask
+message Job
 {
-  repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
+  repeated Update update_li = 1 [ (rust.nullable_field) = false ];
+  repeated Tran tran_li = 2 [ (rust.nullable_field) = false ];
 }
