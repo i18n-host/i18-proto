@@ -32,4 +32,5 @@ message Tran
 message TranTask
 {
   repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
+  map<string, Tran> trans = 2;
 }
