@@ -24,3 +24,11 @@ message Job
   repeated Update update_li = 1 [ (rust.nullable_field) = false ];
   repeated Tran tran_li = 2 [ (rust.nullable_field) = false ];
 }
+
+message Traned 
+{
+  uint32 lang = 1;
+  string txt = 2;
+  bytes src_hash = 3;
+  string path = 4;
+}
