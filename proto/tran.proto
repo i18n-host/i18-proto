@@ -20,11 +20,6 @@ message UpdateLi
   repeated LangTxt li = 4;
 }
 
-// 更新缓存的接口
-message UpdateCache
-{
-  repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
-}
 
 // 翻译文件的接口
 message Tran
@@ -32,4 +27,9 @@ message Tran
   uint32 from_lang = 1;
   repeated uint32 to_lang = 2;
   string txt = 3;
+}
+
+message TranTask
+{
+  repeated UpdateLi update_li = 1 [ (rust.nullable_field) = false ];
 }
