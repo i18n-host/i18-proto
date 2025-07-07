@@ -27,8 +27,24 @@ message Job
 
 message Traned 
 {
-  uint32 lang = 1;
-  string txt = 2;
-  bytes src_hash = 3;
+  uint32 from_lang = 1;
+  uint32 to_lang = 2;
+  string txt = 3;
+  bytes src_hash = 4;
+  string path = 5;
+}
+
+message TranErr {
+  uint32 from_lang = 1;
+  uint32 to_lang = 2;
+  string err = 3;
   string path = 4;
 }
+
+message TranResult {
+  oneof kind {
+    Traned traned = 1 ;
+    TranErr err = 2;
+  };
+}
+

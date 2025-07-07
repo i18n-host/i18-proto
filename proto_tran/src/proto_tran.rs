@@ -482,3 +482,438 @@ impl ::pb_jelly::Reflection for Job {
   }
 }
 
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct Traned {
+  pub from_lang: u32,
+  pub to_lang: u32,
+  pub txt: ::std::string::String,
+  pub src_hash: ::std::vec::Vec<u8>,
+  pub path: ::std::string::String,
+}
+impl ::std::default::Default for Traned {
+  fn default() -> Self {
+    Traned {
+      from_lang: ::std::default::Default::default(),
+      to_lang: ::std::default::Default::default(),
+      txt: ::std::default::Default::default(),
+      src_hash: ::std::default::Default::default(),
+      path: ::std::default::Default::default(),
+    }
+  }
+}
+::lazy_static::lazy_static! {
+  pub static ref Traned_default: Traned = Traned::default();
+}
+impl ::pb_jelly::Message for Traned {
+  fn descriptor(&self) -> ::std::option::Option<::pb_jelly::MessageDescriptor> {
+    Some(::pb_jelly::MessageDescriptor {
+      name: "Traned",
+      full_name: "Traned",
+      fields: &[
+        ::pb_jelly::FieldDescriptor {
+          name: "from_lang",
+          full_name: "Traned.from_lang",
+          index: 0,
+          number: 1,
+          typ: ::pb_jelly::wire_format::Type::Varint,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "to_lang",
+          full_name: "Traned.to_lang",
+          index: 1,
+          number: 2,
+          typ: ::pb_jelly::wire_format::Type::Varint,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "txt",
+          full_name: "Traned.txt",
+          index: 2,
+          number: 3,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "src_hash",
+          full_name: "Traned.src_hash",
+          index: 3,
+          number: 4,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "path",
+          full_name: "Traned.path",
+          index: 4,
+          number: 5,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+      ],
+      oneofs: &[
+      ],
+    })
+  }
+  fn compute_size(&self) -> usize {
+    let mut size = 0usize;
+    size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.from_lang, 1, ::pb_jelly::wire_format::Type::Varint);
+    size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.to_lang, 2, ::pb_jelly::wire_format::Type::Varint);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.txt, 3, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(&self.src_hash, 4, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.path, 5, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size
+  }
+  fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
+    ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.from_lang, 1, ::pb_jelly::wire_format::Type::Varint)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.to_lang, 2, ::pb_jelly::wire_format::Type::Varint)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.txt, 3, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(w, &self.src_hash, 4, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.path, 5, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    Ok(())
+  }
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
+    while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
+      match field_number {
+        1 => {
+          let val = ::pb_jelly::helpers::deserialize_known_length::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "Traned", 1)?;
+          self.from_lang = val;
+        }
+        2 => {
+          let val = ::pb_jelly::helpers::deserialize_known_length::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "Traned", 2)?;
+          self.to_lang = val;
+        }
+        3 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "Traned", 3)?;
+          self.txt = val;
+        }
+        4 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(buf, typ, "Traned", 4)?;
+          self.src_hash = val;
+        }
+        5 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "Traned", 5)?;
+          self.path = val;
+        }
+        _ => {
+          ::pb_jelly::skip(typ, &mut buf)?;
+        }
+      }
+    }
+    Ok(())
+  }
+}
+impl ::pb_jelly::Reflection for Traned {
+  fn which_one_of(&self, oneof_name: &str) -> ::std::option::Option<&'static str> {
+    match oneof_name {
+      _ => {
+        panic!("unknown oneof name given");
+      }
+    }
+  }
+  fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
+    match field_name {
+      "from_lang" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.from_lang)
+      }
+      "to_lang" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.to_lang)
+      }
+      "txt" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.txt)
+      }
+      "src_hash" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.src_hash)
+      }
+      "path" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.path)
+      }
+      _ => {
+        panic!("unknown field name given")
+      }
+    }
+  }
+}
+
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct TranErr {
+  pub from_lang: u32,
+  pub to_lang: u32,
+  pub err: ::std::string::String,
+  pub path: ::std::string::String,
+}
+impl ::std::default::Default for TranErr {
+  fn default() -> Self {
+    TranErr {
+      from_lang: ::std::default::Default::default(),
+      to_lang: ::std::default::Default::default(),
+      err: ::std::default::Default::default(),
+      path: ::std::default::Default::default(),
+    }
+  }
+}
+::lazy_static::lazy_static! {
+  pub static ref TranErr_default: TranErr = TranErr::default();
+}
+impl ::pb_jelly::Message for TranErr {
+  fn descriptor(&self) -> ::std::option::Option<::pb_jelly::MessageDescriptor> {
+    Some(::pb_jelly::MessageDescriptor {
+      name: "TranErr",
+      full_name: "TranErr",
+      fields: &[
+        ::pb_jelly::FieldDescriptor {
+          name: "from_lang",
+          full_name: "TranErr.from_lang",
+          index: 0,
+          number: 1,
+          typ: ::pb_jelly::wire_format::Type::Varint,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "to_lang",
+          full_name: "TranErr.to_lang",
+          index: 1,
+          number: 2,
+          typ: ::pb_jelly::wire_format::Type::Varint,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "err",
+          full_name: "TranErr.err",
+          index: 2,
+          number: 3,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "path",
+          full_name: "TranErr.path",
+          index: 3,
+          number: 4,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+      ],
+      oneofs: &[
+      ],
+    })
+  }
+  fn compute_size(&self) -> usize {
+    let mut size = 0usize;
+    size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.from_lang, 1, ::pb_jelly::wire_format::Type::Varint);
+    size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.to_lang, 2, ::pb_jelly::wire_format::Type::Varint);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.err, 3, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.path, 4, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size
+  }
+  fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
+    ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.from_lang, 1, ::pb_jelly::wire_format::Type::Varint)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.to_lang, 2, ::pb_jelly::wire_format::Type::Varint)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.err, 3, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.path, 4, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    Ok(())
+  }
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
+    while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
+      match field_number {
+        1 => {
+          let val = ::pb_jelly::helpers::deserialize_known_length::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "TranErr", 1)?;
+          self.from_lang = val;
+        }
+        2 => {
+          let val = ::pb_jelly::helpers::deserialize_known_length::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "TranErr", 2)?;
+          self.to_lang = val;
+        }
+        3 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "TranErr", 3)?;
+          self.err = val;
+        }
+        4 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "TranErr", 4)?;
+          self.path = val;
+        }
+        _ => {
+          ::pb_jelly::skip(typ, &mut buf)?;
+        }
+      }
+    }
+    Ok(())
+  }
+}
+impl ::pb_jelly::Reflection for TranErr {
+  fn which_one_of(&self, oneof_name: &str) -> ::std::option::Option<&'static str> {
+    match oneof_name {
+      _ => {
+        panic!("unknown oneof name given");
+      }
+    }
+  }
+  fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
+    match field_name {
+      "from_lang" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.from_lang)
+      }
+      "to_lang" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.to_lang)
+      }
+      "err" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.err)
+      }
+      "path" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.path)
+      }
+      _ => {
+        panic!("unknown field name given")
+      }
+    }
+  }
+}
+
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct TranResult {
+  pub kind: ::std::option::Option<TranResult_Kind>,
+}
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum TranResult_Kind {
+  Traned(Traned),
+  Err(TranErr),
+}
+impl ::std::default::Default for TranResult {
+  fn default() -> Self {
+    TranResult {
+      kind: None,
+    }
+  }
+}
+::lazy_static::lazy_static! {
+  pub static ref TranResult_default: TranResult = TranResult::default();
+}
+impl ::pb_jelly::Message for TranResult {
+  fn descriptor(&self) -> ::std::option::Option<::pb_jelly::MessageDescriptor> {
+    Some(::pb_jelly::MessageDescriptor {
+      name: "TranResult",
+      full_name: "TranResult",
+      fields: &[
+        ::pb_jelly::FieldDescriptor {
+          name: "traned",
+          full_name: "TranResult.traned",
+          index: 0,
+          number: 1,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: Some(0),
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "err",
+          full_name: "TranResult.err",
+          index: 1,
+          number: 2,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: Some(0),
+        },
+      ],
+      oneofs: &[
+        ::pb_jelly::OneofDescriptor {
+          name: "kind",
+        },
+      ],
+    })
+  }
+  fn compute_size(&self) -> usize {
+    let mut size = 0usize;
+    if let Some(TranResult_Kind::Traned(ref val)) = self.kind {
+      size += ::pb_jelly::helpers::compute_size_field::<Traned>(val, 1, ::pb_jelly::wire_format::Type::LengthDelimited);
+    }
+    if let Some(TranResult_Kind::Err(ref val)) = self.kind {
+      size += ::pb_jelly::helpers::compute_size_field::<TranErr>(val, 2, ::pb_jelly::wire_format::Type::LengthDelimited);
+    }
+    size
+  }
+  fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
+    if let Some(TranResult_Kind::Traned(ref val)) = self.kind {
+      ::pb_jelly::helpers::serialize_field::<W, Traned>(w, val, 1, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    }
+    if let Some(TranResult_Kind::Err(ref val)) = self.kind {
+      ::pb_jelly::helpers::serialize_field::<W, TranErr>(w, val, 2, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    }
+    Ok(())
+  }
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
+    while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
+      match field_number {
+        1 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, Traned>(buf, typ, "TranResult", 1)?;
+          self.kind = Some(TranResult_Kind::Traned(val));
+        }
+        2 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, TranErr>(buf, typ, "TranResult", 2)?;
+          self.kind = Some(TranResult_Kind::Err(val));
+        }
+        _ => {
+          ::pb_jelly::skip(typ, &mut buf)?;
+        }
+      }
+    }
+    Ok(())
+  }
+}
+impl ::pb_jelly::Reflection for TranResult {
+  fn which_one_of(&self, oneof_name: &str) -> ::std::option::Option<&'static str> {
+    match oneof_name {
+      "kind" => {
+        if let Some(TranResult_Kind::Traned(ref val)) = self.kind {
+          return Some("traned");
+        }
+        if let Some(TranResult_Kind::Err(ref val)) = self.kind {
+          return Some("err");
+        }
+        None
+      }
+      _ => {
+        panic!("unknown oneof name given");
+      }
+    }
+  }
+  fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
+    match field_name {
+      "traned" => {
+        match self.kind {
+          Some(TranResult_Kind::Traned(_)) => (),
+          _ => {
+            self.kind = Some(TranResult_Kind::Traned(::std::default::Default::default()));
+          },
+        }
+        if let Some(TranResult_Kind::Traned(ref mut val)) = self.kind {
+          return ::pb_jelly::reflection::FieldMut::Value(val);
+        }
+        unreachable!()
+      }
+      "err" => {
+        match self.kind {
+          Some(TranResult_Kind::Err(_)) => (),
+          _ => {
+            self.kind = Some(TranResult_Kind::Err(::std::default::Default::default()));
+          },
+        }
+        if let Some(TranResult_Kind::Err(ref mut val)) = self.kind {
+          return ::pb_jelly::reflection::FieldMut::Value(val);
+        }
+        unreachable!()
+      }
+      _ => {
+        panic!("unknown field name given")
+      }
+    }
+  }
+}
+
