@@ -21,13 +21,14 @@ message UpdateLi
 }
 
 
-// 翻译文件的接口
-message Tran
+message TranTxt
 {
   uint32 from_lang = 1;
   repeated uint32 to_lang = 2;
   string txt = 3;
 }
+
+
 
 message TranTask
 {
